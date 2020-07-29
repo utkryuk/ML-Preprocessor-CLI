@@ -1,0 +1,1 @@
+Implementing try-catch for every possible situation
