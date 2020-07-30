@@ -3,17 +3,23 @@ import pandas as pd
 class DataDescription:
 
     tasks = [
-        '\n1. Print Table',
-        '2. Describe a specific Column',
-        '3. Show Properties of Each Column'
+        '\n1. Describe a specific Column',
+        '2. Show Properties of Each Column',
+        '3. Show the Dataset'
     ]
 
     def __init__(self, data):
         self.data = data
 
     def showDataset(self):
-        rows = int(input(("\nHow many rows(>0) to print?  ")))
-        print(self.data.head(rows))
+        while(1):
+            try:
+                rows = int(input(("\nHow many rows(>0) to print?  ")))
+                print(self.data.head(rows))
+            except ValueError:
+                print("Numeric value is required. Try again....")
+                continue
+            break
         return
 
 
@@ -21,39 +27,41 @@ class DataDescription:
         for column in self.data.columns.values:
             print(column, end="  ")
 
-    
-    def heading(self, _heading):
-        underline_byte = b'\xcc\xb2'
-        underline = str(underline_byte,'utf-8')
-        for x in _heading:
-            if x.isspace() == False:
-                print(x+underline,end='')
-            else:
-                print(x,end='')
-        print("")
             
     def describe(self):
         while(1):
             for task in self.tasks:
                 print(task)
 
-            taskNo = int(input(("\n\nWhat you want to see? (Press 0 to go back)  ")))
-
-            if taskNo==0:
+            while(1):
+                try:
+                    choice = int(input(("\n\nWhat you want to see? (Press 0 to go back)  ")))
+                except ValueError:
+                    print("Integer Value required. Try again.....")
+                    continue
                 break
-            
-            elif taskNo==1:
-                self.showDataset()
-            
-            elif taskNo==2:
+
+            if choice==0:
+                break
+                        
+            elif choice==1:
                 self.showColumns()
-                describeColumn = input("\n\nWhich Column?(Write full name(Don't ignore the case) of the column)  ")
-                print(self.data[describeColumn].describe())
+                while(1):
+                    describeColumn = input("\n\nWhich Column?(Don't ignore the case)  ")
+                    try:
+                        print(self.data[describeColumn].describe())
+                    except KeyError:
+                        print("No Column present with this name. Try again....")
+                        continue
+                    break
             
-            elif taskNo==3:
+            elif choice==2:
                 print(self.data.describe())
                 print("\n\n")
                 print(self.data.info())
 
+            elif choice==3:
+                self.showDataset()
+
             else:
-                print("You pressed the wrong key. Try again!!")
+                print("\nWrong Integer value!! Try again..")

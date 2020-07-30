@@ -65,7 +65,14 @@ class FeatureScaling:
         while(1):
             for task in self.tasks_standardization:
                 print(task)
-            choice = int(input("\nEnter your choice : (Press 0 to go back)  "))
+
+            while(1):
+                try:
+                    choice = int(input(("\n\nWhat you want to see? (Press 0 to go back)  ")))
+                except ValueError:
+                    print("Integer Value required. Try again.....")
+                    continue
+                break
 
             if choice == 0:
                 break
@@ -119,6 +126,6 @@ class FeatureScaling:
                 DataDescription.showDataset(self)
             
             else:
-                print("\nYou pressed the wrong key!! Try again..")
+                print("\nWrong Integer value!! Try again..")
         
         return self.data

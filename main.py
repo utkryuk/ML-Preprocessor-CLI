@@ -1,5 +1,5 @@
 from data_description import DataDescription
-from data_input import dataInput
+from data_input import DataInput
 from imputation import Imputation
 from download import Download
 from categorical import Categorical
@@ -8,18 +8,18 @@ from feature_scaling import FeatureScaling
 class Preprocessor:
 
     tasks = [
-        '1. About Data',
+        '1. Data Description',
         '2. Handling NULL Values',
         '3. Encoding Categorical Data',
         '4. Feature Scaling of the Dataset',
         '5. Download the modified dataset'
     ]
 
-    data = dataInput().Input()
+    data = 0
     
     def __init__(self):
+        self.data = DataInput().inputFunction()
         print("\n\nWELCOME TO THE MACHINE LEARNING PREPROCESSOR CLI!!!\n\n")
-
 
     def removeTargetColumn(self):
         print("Columns:\n")
@@ -30,7 +30,11 @@ class Preprocessor:
             column = input("\nWhich is the target variable:  ")
             choice = input("Are you sure?(y/n) ")
             if choice=="y" or choice=="Y":
-                self.data.drop([column], axis = 1, inplace = True)
+                try:
+                    self.data.drop([column], axis = 1, inplace = True)
+                except KeyError:
+                    print("No column present with this name. Try again......")
+                    continue
                 print("Done.......")
                 break
             else:
@@ -47,7 +51,13 @@ class Preprocessor:
             for task in self.tasks:
                 print(task)
 
-            choice = int(input("\nEnter your Choice : (Press 0 to go exit)  "))
+            while(1):
+                try:
+                    choice = int(input("\nEnter your Choice : (Press 0 to go exit)  "))
+                except ValueError:
+                    print("Integer Value required. Try again.....")
+                    continue
+                break
 
             if choice == 0:
                 exit()
@@ -66,6 +76,9 @@ class Preprocessor:
 
             elif choice==5:
                 Download(self.data).download()
+            
+            else:
+                print("\nWrong Integer value!! Try again..")
 
 
 obj = Preprocessor()

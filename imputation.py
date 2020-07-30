@@ -93,7 +93,14 @@ class Imputation:
             print("\nWhat to do now?")
             for task in self.tasks:
                 print(task)
-            choice = int(input("\nEnter your Choice : (Press 0 to go back)  "))
+
+            while(1):
+                try:
+                    choice = int(input(("\n\nWhat you want to see? (Press 0 to go back)  ")))
+                except ValueError:
+                    print("Integer Value required. Try again.....")
+                    continue
+                break
 
             if choice == 0:
                 break
@@ -120,6 +127,6 @@ class Imputation:
                 DataDescription.showDataset(self)
 
             else:
-                print("\nYou pressed the wrong key!! Try again..")
+                print("\nWrong Integer value!! Try again..")
         
         return self.data
