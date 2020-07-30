@@ -8,9 +8,20 @@ class DataDescription:
         '2. Describe a specific Column',
         '3. Show Numeric Properties of Each Column'
     ]
-    
+
     def __init__(self, data):
         self.data = data
+
+    def showDataset(self):
+        print("\nHow many rows(>0) to print?")
+        rows = int(input())
+        print(self.data.head(rows))
+        return
+
+
+    def showColumns(self):
+        for column in self.data.columns.values:
+            print(column, end="  ")
     
     def heading(self, _heading):
         underline_byte = b'\xcc\xb2'
@@ -34,20 +45,14 @@ class DataDescription:
                 break
             
             elif taskNo==1:
-                print("\nHow many rows(>0) to print?")
-                rows = int(input())
-                print(self.data.head(rows))
+                self.showDataset()
             
             elif taskNo==2:
-               # print(self.data.columns.values)
-                for column in self.data.columns.values:
-                    print(column, end="  ")
-
+                self.showColumns()
                 print("\n\nWhich Column?(Write full name(Don't ignore the case) of the column)")
                 describeColumn = input()
                 print(self.data[describeColumn].describe())
             
-
             elif taskNo==3:
                 print(self.data.describe())
 

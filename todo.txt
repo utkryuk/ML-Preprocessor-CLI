@@ -1,1 +1,3 @@
-Implementing try-catch for every possible situation
+1. Implementing try-catch for every possible situation
+2. Implementing GUI of this project
+3. Show rows and columns by specifying a range
