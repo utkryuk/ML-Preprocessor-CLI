@@ -68,8 +68,5 @@ class Preprocessor:
                 Download(self.data).download()
 
 
-#if __name__ == "__main__ ":
 obj = Preprocessor()
-# print(obj.inputData())
-#print(obj.printData())
 obj.preprocessorMain()
