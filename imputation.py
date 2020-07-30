@@ -88,7 +88,7 @@ class Imputation:
         return
 
 
-    def whileLoop(self):
+    def imputer(self):
 #        self.printNullValues()
         while(1):
             print("\nWhat to do now?")
@@ -122,4 +122,5 @@ class Imputation:
 
             else:
                 print("\nYou pressed the wrong key!! Try again..")
-                
+        
+        return self.data

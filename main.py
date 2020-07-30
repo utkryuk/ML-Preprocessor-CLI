@@ -2,13 +2,17 @@ from data_description import DataDescription
 from data_input import dataInput
 from imputation import Imputation
 from download import Download
+from categorical import Categorical
+from feature_scaling import FeatureScaling
 
 class Preprocessor:
 
     tasks = [
         '1. About Data',
         '2. Handling NULL Values',
-        '3. Download the modified dataset'
+        '3. Encoding Categorical Data',
+        '4. Feature Scaling of the Dataset',
+        '5. Download the modified dataset'
     ]
 
     data = dataInput().Input()
@@ -42,10 +46,17 @@ class Preprocessor:
                 DataDescription(self.data).describe()
 
             elif choice==2:
-                Imputation(self.data).whileLoop()
+                self.data = Imputation(self.data).imputer()
                 
             elif choice==3:
+                self.data = Categorical(self.data).categoricalMain()
+
+            elif choice==4:
+                self.data = FeatureScaling(self.data).scaling()
+
+            elif choice==5:
                 Download(self.data).download()
+
 
 #if __name__ == "__main__ ":
 obj = Preprocessor()
