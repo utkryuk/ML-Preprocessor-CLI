@@ -18,20 +18,30 @@ class Preprocessor:
     data = dataInput().Input()
     
     def __init__(self):
-        print("Welcome!!!")
+        print("\n\nWELCOME TO THE MACHINE LEARNING PREPROCESSOR CLI!!!\n\n")
 
 
-    # def divideTrain(self):
-    #     print("\nSelect Target Variable(Y) from these columns:\n")
-    #     for column in self.data.columns.values:
-    #         print(column, end="  ")
-    #     print("")
+    def removeTargetColumn(self):
+        print("Columns:\n")
+        for column in self.data.columns.values:
+            print(column, end = "  ")
         
+        while(1):
+            column = input("\nWhich is the target variable:  ")
+            choice = input("Are you sure?(y/n) ")
+            if choice=="y" or choice=="Y":
+                self.data.drop([column], axis = 1, inplace = True)
+                print("Done.......")
+                break
+            else:
+                print("Try again with the correct column name..")
+        return
     
     def printData(self):
         print(self.data)
 
-    def whileLoop(self):
+    def preprocessorMain(self):
+        self.removeTargetColumn()
         while(1):
             print("\nWhat to do")
             for task in self.tasks:
@@ -62,4 +72,4 @@ class Preprocessor:
 obj = Preprocessor()
 # print(obj.inputData())
 #print(obj.printData())
-obj.whileLoop()
+obj.preprocessorMain()
