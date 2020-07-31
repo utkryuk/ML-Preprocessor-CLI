@@ -36,19 +36,19 @@ class FeatureScaling:
 
             while(1):
                 try:
-                    choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
+                    choice = int(input(("\n\nWhat you want to do? (Press -1 to go back)  ")))
                 except ValueError:
                     print("Integer Value required. Try again.....\U0001F974")
                     continue
                 break
     
-            if choice == 0:
+            if choice == -1:
                 break
             
             elif choice == 1:
                 print(self.data.dtypes)
-                columns = input("Enter all the columns you want to normalize (Press -1 to go back)  ")
-                if columns == "0":
+                columns = input("Enter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to normalize (Press -1 to go back)  ")
+                if columns == "-1":
                     break
                 for column in columns.split(" "):
                     try:
@@ -62,6 +62,8 @@ class FeatureScaling:
             elif choice == 2:
                 try:
                     self.data = pd.DataFrame(MinMaxScaler().fit_transform(self.data))
+                    print("Done.......\U0001F601")
+
                 except:
                     print("\nString Columns are present. So, " + self.bold_start + "NOT" + self.bold_end + " possible.\U0001F636\nYou can try the first option though.")
                 
@@ -82,19 +84,19 @@ class FeatureScaling:
 
             while(1):
                 try:
-                    choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
+                    choice = int(input(("\n\nWhat you want to do? (Press -1 to go back)  ")))
                 except ValueError:
                     print("Integer Value required. Try again.....")
                     continue
                 break
 
-            if choice == 0:
+            if choice == -1:
                 break
 
             elif choice == 1:
                 print(self.data.dtypes)
-                columns = input("Enter all the columns you want to standardize (Press -1 to go back)  ")
-                if columns == "0":
+                columns = input("Enter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to normalize (Press -1 to go back)  ")
+                if columns == "-1":
                     break
                 for column in columns.split(" "):
                     try:
@@ -109,6 +111,7 @@ class FeatureScaling:
             elif choice == 2:
                 try:
                     self.data = pd.DataFrame(StandardScaler().fit_transform(self.data))
+                    print("Done.......\U0001F601")
                 except:
                     print("\nString Columns are present. So, " + self.bold_start + "NOT" + self.bold_end + " possible.\U0001F636\nYou can try the first option though.")
                 break
@@ -131,12 +134,12 @@ class FeatureScaling:
 
             while(1):
                 try:
-                    choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
+                    choice = int(input(("\n\nWhat you want to do? (Press -1 to go back)  ")))
                 except ValueError:
                     print("Integer Value required. Try again.....\U0001F974")
                     continue
                 break
-            if choice == 0:
+            if choice == -1:
                 break
             
             elif choice == 1:

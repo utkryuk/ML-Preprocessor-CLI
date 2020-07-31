@@ -4,9 +4,12 @@ from data_description import DataDescription
 
 class Imputation:
     
+    bold_start = "\033[1m"
+    bold_end = "\033[0;0m"
+
     tasks = [
         "\n1. Show number of Null Values",
-        "2. Remove Column",
+        "2. Remove Columns",
         "3. Fill Null Values (with mean)",
         "4. Fill Null Values (with median)",
         "5. Fill Null Values (with mode)",
@@ -33,15 +36,17 @@ class Imputation:
     def removeColumn(self):
         self.showColumns()
         while(1):
-            column = input("\nWhich column you want to delete?(Press 0 to go back)  ")
-            if column == "0":
+            columns = input("\nEnter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to delete (Press -1 to go back)  ")
+
+            if columns == "-1":
                 break
+
             choice = input("Are you sure?(y/n) ")
             if choice=="y" or choice=="Y":
                 try:
-                    self.data.drop([column], axis = 1, inplace = True)
+                    self.data.drop(columns.split(" "), axis = 1, inplace = True)
                 except KeyError:
-                    print("Column is not present. Try again.....\U0001F974")
+                    print("One or more Columns are not present. Try again.....\U0001F974")
                     continue
                 print("Done.......\U0001F601")
                 break
@@ -53,8 +58,8 @@ class Imputation:
     def fillNullWithMean(self):
         self.showColumns()
         while(1):
-            column = input("\nEnter the column name:(Press 0 to go back)  ")
-            if column == "0":
+            column = input("\nEnter the column name:(Press -1 to go back)  ")
+            if column == "-1":
                 break
             choice = input("Are you sure? (y/n)  ")
             if choice=="y" or choice=='Y':
@@ -64,9 +69,10 @@ class Imputation:
                     print("Column is not present. Try again.....\U0001F974")
                     continue
                 except TypeError:
-                    print("The Imputation is not possible here. Try on another column.\U0001F974")
+                    print("The Imputation is not possible here\U0001F974. Try on another column.")
                     continue
                 print("Done......\U0001F601")
+                break
             else:
                 print("Not changing........\U0001F974")
         return
@@ -75,8 +81,8 @@ class Imputation:
     def fillNullWithMedian(self):
         self.showColumns()
         while(1):
-            column = input("\nEnter the column name:(Press 0 to go back)  ")
-            if column == "0":
+            column = input("\nEnter the column name:(Press -1 to go back)  ")
+            if column == "-1":
                 break
             choice = input("Are you sure? (y/n)  ")
             if choice=="y" or choice=='Y':
@@ -86,9 +92,10 @@ class Imputation:
                     print("Column is not present. Try again.....\U0001F974")
                     continue
                 except TypeError:
-                    print("The Imputation is not possible here. Try on another column.\U0001F974")
+                    print("The Imputation is not possible here\U0001F974.Try on another column.")
                     continue
                 print("Done......\U0001F601")
+                break
             else:
                 print("Not changing........\U0001F974")
         return
@@ -96,8 +103,8 @@ class Imputation:
     def fillNullWithMode(self):
         self.showColumns()
         while(1):
-            column = input("\nEnter the column name:(Press 0 to go back)  ")
-            if column == "0":
+            column = input("\nEnter the column name:(Press -1 to go back)  ")
+            if column == "-1":
                 break
             choice = input("Are you sure? (y/n)  ")
             if choice=="y" or choice=='Y':
@@ -108,9 +115,10 @@ class Imputation:
                     print("Column is not present. Try again.....\U0001F974")
                     continue
                 except TypeError:
-                    print("The Imputation is not possible here. Try on another column.\U0001F974")
+                    print("The Imputation is not possible here\U0001F974. Try on another column.")
                     continue
                 print("Done......\U0001F601")
+                break
             else:
                 print("Not changing........\U0001F974")
         return
@@ -123,13 +131,13 @@ class Imputation:
 
             while(1):
                 try:
-                    choice = int(input(("\nWhat you want to do? (Press 0 to go back)  ")))
+                    choice = int(input(("\nWhat you want to do? (Press -1 to go back)  ")))
                 except ValueError:
                     print("Integer Value required. Try again.....\U0001F974")
                     continue
                 break
 
-            if choice == 0:
+            if choice == -1:
                 break
 
             elif choice==1:

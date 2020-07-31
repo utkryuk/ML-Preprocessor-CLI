@@ -56,13 +56,13 @@ class Preprocessor:
 
             while(1):
                 try:
-                    choice = int(input("\nWhat do you want to do? (Press 0 to go exit):  "))
+                    choice = int(input("\nWhat do you want to do? (Press -1 to go exit):  "))
                 except ValueError:
                     print("Integer Value required. Try again.....\U0001F974")
                     continue
                 break
 
-            if choice == 0:
+            if choice == -1:
                 exit()
 
             elif choice==1:
