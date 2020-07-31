@@ -1,6 +1,6 @@
-# ML Preprocessor CLI
+# :zap: ML Preprocessor CLI
 
-The CLI required made to preprocess the database and save your **time**.
+The CLI made to preprocess the database and save your **time**:clock1:
 
 ## Gist
 
@@ -10,22 +10,21 @@ The CLI required made to preprocess the database and save your **time**.
     - Handling NULL Values
     - Encoding Categorical Data
     - Feature Scaling
-- We can also **DOWNLOAD** the modified dataset.
-- Saves your time so, that more time can be utitlized for the ML Algorithms.
+- We can also **DOWNLOAD**:arrow_down: the modified dataset.
 
-## To-Do
+## :memo: To-Do
 
 - [x] Implement try-catch
-- [] Handling case in the input
+- [ ] Handling case in the input
 - [x] Adding Emoji's
-- [] Implementing graph functions for Analysis
+- [ ] Implementing graph functions for Analysis
 
 ## Run
 
 - Clone this Repository: `git clone https://github.com/utkryuk/ML-Preprocessor-CLI.git`
 - `cd ML-Preprocessor-CLI/`
 - `pip3 install -r requirements.txt`
-- `python3 main.py [Dataset's Path]`
+- Now run, python3 `main.py` [Dataset's Path]
 - Ex: `python3 main.py dataset.csv`
 - Then you will see the below home screen.
 
