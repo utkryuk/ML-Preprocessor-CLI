@@ -4,9 +4,6 @@ from data_description import DataDescription
 
 class Imputation:
     
-    start = "\033[1m"
-    end = "\033[0;0m"
-    
     tasks = [
         "\n1. Show number of Null Values",
         "2. Remove Column",
@@ -56,7 +53,7 @@ class Imputation:
     def fillNullWithMean(self):
         self.showColumns()
         while(1):
-            column = input("\nEnter the column's name:(Press 0 to go back)  ")
+            column = input("\nEnter the column name:(Press 0 to go back)  ")
             if column == "0":
                 break
             choice = input("Are you sure? (y/n)  ")
@@ -78,7 +75,7 @@ class Imputation:
     def fillNullWithMedian(self):
         self.showColumns()
         while(1):
-            column = input("\nEnter the column's name:(Press 0 to go back)  ")
+            column = input("\nEnter the column name:(Press 0 to go back)  ")
             if column == "0":
                 break
             choice = input("Are you sure? (y/n)  ")
@@ -99,7 +96,7 @@ class Imputation:
     def fillNullWithMode(self):
         self.showColumns()
         while(1):
-            column = input("\nEnter the column's name:(Press 0 to go back)  ")
+            column = input("\nEnter the column name:(Press 0 to go back)  ")
             if column == "0":
                 break
             choice = input("Are you sure? (y/n)  ")

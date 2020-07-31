@@ -1,6 +1,10 @@
 import pandas as pd
 
 class Download:
+
+    bold_start = "\033[1m"
+    bold_end = "\033[0;0m"
+
     def __init__(self, data):
         self.data = data
 
@@ -9,7 +13,7 @@ class Download:
         for column in self.data.columns.values:
             toBeDownload[column] = self.data[column]
 
-        newFileName = input("\nEnter the filename you want?:  ")       
+        newFileName = input("\nEnter the " + self.bold_start +"FILENAME" + self.bold_end +" you want?:  ")       
         newFileName = newFileName + ".csv"
         pd.DataFrame(self.data).to_csv(newFileName, index = False)
         print("Hurray!! It is done....\U0001F601")

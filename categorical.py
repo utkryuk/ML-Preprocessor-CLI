@@ -4,8 +4,8 @@ from data_description import DataDescription
 
 class Categorical:
     
-    start = "\033[1m"
-    end = "\033[0;0m"
+    bold_start = "\033[1m"
+    bold_end = "\033[0;0m"
     
     tasks = [
         '\n1. Show Categorical Columns',
