@@ -4,6 +4,9 @@ from data_description import DataDescription
 
 class Categorical:
     
+    start = "\033[1m"
+    end = "\033[0;0m"
+    
     tasks = [
         '\n1. Show Categorical Columns',
         '2. Performing One Hot encoding',
@@ -30,7 +33,7 @@ class Categorical:
             # onehotencoder = OneHotEncoder(categorical_features =[column])
             # print(self.data[column])
                 self.data = pd.get_dummies(data=self.data, columns = [column])
-                print("Encoding is done.......")
+                print("Encoding is done.......\U0001F601")
                 
                 choice = input("Are there more columns to be encoded?(y/n)  ")
                 if choice == "y" or choice == "Y":

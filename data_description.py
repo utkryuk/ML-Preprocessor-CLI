@@ -2,6 +2,9 @@ import pandas as pd
 
 class DataDescription:
 
+    start = "\033[1m"
+    end = "\033[0;0m"
+    
     tasks = [
         '\n1. Describe a specific Column',
         '2. Show Properties of Each Column',

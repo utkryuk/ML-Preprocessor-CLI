@@ -4,6 +4,9 @@ from data_description import DataDescription
 
 class Imputation:
     
+    start = "\033[1m"
+    end = "\033[0;0m"
+    
     tasks = [
         "\n1. Show number of Null Values",
         "2. Remove Column",
@@ -41,12 +44,12 @@ class Imputation:
                 try:
                     self.data.drop([column], axis = 1, inplace = True)
                 except KeyError:
-                    print("Column is not present. Try again.....")
+                    print("Column is not present. Try again.....\U0001F974")
                     continue
-                print("Done.......")
+                print("Done.......\U0001F601")
                 break
             else:
-                print("Not Deleting then........")
+                print("Not Deleting........\U0001F974")
         return
 
 
@@ -61,14 +64,14 @@ class Imputation:
                 try:
                     self.data[column] = self.data[column].fillna(self.data[column].mean())
                 except KeyError:
-                    print("Column is not present. Try again.....")
+                    print("Column is not present. Try again.....\U0001F974")
                     continue
                 except TypeError:
-                    print("The Imputation is not possible here. Try on another column.")
+                    print("The Imputation is not possible here. Try on another column.\U0001F974")
                     continue
-                print("Done......")
+                print("Done......\U0001F601")
             else:
-                print("Not changing........")
+                print("Not changing........\U0001F974")
         return
 
 
@@ -83,14 +86,14 @@ class Imputation:
                 try:
                     self.data[column] = self.data[column].fillna(self.data[column].median())
                 except KeyError:
-                    print("Column is not present. Try again.....")
+                    print("Column is not present. Try again.....\U0001F974")
                     continue
                 except TypeError:
-                    print("The Imputation is not possible here. Try on another column.")
+                    print("The Imputation is not possible here. Try on another column.\U0001F974")
                     continue
-                print("Done......")
+                print("Done......\U0001F601")
             else:
-                print("Not changing........")
+                print("Not changing........\U0001F974")
         return
 
     def fillNullWithMode(self):
@@ -105,14 +108,14 @@ class Imputation:
                     # Mode provides us with dataframe so, we will take 1st value(most probable value).
                     self.data[column] = self.data[column].fillna(self.data[column].mode()[0])
                 except KeyError:
-                    print("Column is not present. Try again.....")
+                    print("Column is not present. Try again.....\U0001F974")
                     continue
                 except TypeError:
-                    print("The Imputation is not possible here. Try on another column.")
+                    print("The Imputation is not possible here. Try on another column.\U0001F974")
                     continue
-                print("Done......")
+                print("Done......\U0001F601")
             else:
-                print("Not changing........")
+                print("Not changing........\U0001F974")
         return
 
     def imputer(self):
@@ -125,7 +128,7 @@ class Imputation:
                 try:
                     choice = int(input(("\nWhat you want to do? (Press 0 to go back)  ")))
                 except ValueError:
-                    print("Integer Value required. Try again.....")
+                    print("Integer Value required. Try again.....\U0001F974")
                     continue
                 break
 
@@ -151,5 +154,5 @@ class Imputation:
                 DataDescription.showDataset(self)
 
             else:
-                print("\nWrong Integer value!! Try again..")
+                print("\nWrong Integer value!! Try again..\U0001F974")
         return self.data

@@ -7,6 +7,9 @@ from feature_scaling import FeatureScaling
 
 class Preprocessor:
 
+    start = "\033[1m"
+    end = "\033[0;0m"
+    
     tasks = [
         '1. Data Description',
         '2. Handling NULL Values',
@@ -33,12 +36,12 @@ class Preprocessor:
                 try:
                     self.data.drop([column], axis = 1, inplace = True)
                 except KeyError:
-                    print("No column present with this name. Try again......")
+                    print("No column present with this name. Try again......\U0001F974")
                     continue
-                print("Done.......")
+                print("Done.......\U0001F601")
                 break
             else:
-                print("Try again with the correct column name..")
+                print("Try again with the correct column name...\U0001F974")
         return
     
     def printData(self):
@@ -55,7 +58,7 @@ class Preprocessor:
                 try:
                     choice = int(input("\nWhat do you want to do? (Press 0 to go exit):  "))
                 except ValueError:
-                    print("Integer Value required. Try again.....")
+                    print("Integer Value required. Try again.....\U0001F974")
                     continue
                 break
 
@@ -78,7 +81,7 @@ class Preprocessor:
                 Download(self.data).download()
             
             else:
-                print("\nWrong Integer value!! Try again..")
+                print("\nWrong Integer value!! Try again..\U0001F974")
 
 
 obj = Preprocessor()

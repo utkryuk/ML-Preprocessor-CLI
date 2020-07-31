@@ -12,10 +12,10 @@ class Download:
         newFileName = input("\nEnter the filename you want?:  ")       
         newFileName = newFileName + ".csv"
         pd.DataFrame(self.data).to_csv(newFileName, index = False)
-        print("Hurray!! It is done")
+        print("Hurray!! It is done....\U0001F601")
         
         if input("Do you want to exit now? (y/n) ") == 'y':
-            print("Exiting...")
+            print("Exiting...\U0001F44B")
             exit()
         else:
             return

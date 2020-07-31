@@ -4,6 +4,9 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 class FeatureScaling:
     
+    bold_start = "\033[1m"
+    bold_end = "\033[0;0m"
+
     tasks = [
         "\n1. Perform Normalization(MinMax Scaler)",
         "2. Perform Standardization(Standard Scaler)",
@@ -35,7 +38,7 @@ class FeatureScaling:
                 try:
                     choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
                 except ValueError:
-                    print("Integer Value required. Try again.....")
+                    print("Integer Value required. Try again.....\U0001F974")
                     continue
                 break
     
@@ -53,20 +56,20 @@ class FeatureScaling:
                         maxValue = self.data[column].max()
                         self.data[column] = (self.data[column] - minValue)/(maxValue - minValue)
                     except:
-                        print("\nNot possible....")
-                    
+                        print("\nNot possible....\U0001F636")
+                print("Done....\U0001F601")
 
             elif choice == 2:
                 try:
                     self.data = pd.DataFrame(MinMaxScaler().fit_transform(self.data))
                 except:
-                    print("\nString Columns are present. So, NOT possible.\nYou can try the first option though.")
+                    print("\nString Columns are present. So, " + self.bold_start + "NOT" + self.bold_end + " possible.\U0001F636\nYou can try the first option though.")
                 
             elif choice==3:
                 DataDescription.showDataset(self)
 
             else:
-                print("\nYou pressed the wrong key!! Try again..")
+                print("\nYou pressed the wrong key!! Try again..\U0001F974")
 
         return
 
@@ -99,21 +102,22 @@ class FeatureScaling:
                         standard_deviation = self.data[column].std()
                         self.data[column] = (self.data[column] - mean)/(standard_deviation)
                     except:
-                        print("\nNot possible....")
+                        print("\nNot possible....\U0001F636")
+                print("Done....\U0001F601")
                     
             
             elif choice == 2:
                 try:
                     self.data = pd.DataFrame(StandardScaler().fit_transform(self.data))
                 except:
-                    print("\nString Columns are present. So, NOT possible.\nYou can try the first option though.")
+                    print("\nString Columns are present. So, " + self.bold_start + "NOT" + self.bold_end + " possible.\U0001F636\nYou can try the first option though.")
                 break
 
             elif choice==3:
                 DataDescription.showDataset(self)
 
             else:
-                print("\nYou pressed the wrong key!! Try again..")
+                print("\nYou pressed the wrong key!! Try again..\U0001F974")
 
         return
 
@@ -129,7 +133,7 @@ class FeatureScaling:
                 try:
                     choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
                 except ValueError:
-                    print("Integer Value required. Try again.....")
+                    print("Integer Value required. Try again.....\U0001F974")
                     continue
                 break
             if choice == 0:
@@ -145,6 +149,6 @@ class FeatureScaling:
                 DataDescription.showDataset(self)
             
             else:
-                print("\nWrong Integer value!! Try again..")
+                print("\nWrong Integer value!! Try again..\U0001F974")
         
         return self.data
