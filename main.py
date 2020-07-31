@@ -19,10 +19,10 @@ class Preprocessor:
     
     def __init__(self):
         self.data = DataInput().inputFunction()
-        print("\n\nWELCOME TO THE MACHINE LEARNING PREPROCESSOR CLI!!!\n\n")
+        print("\n\nWELCOME TO THE MACHINE LEARNING PREPROCESSOR CLI!!!\N{grinning face}\n\n")
 
     def removeTargetColumn(self):
-        print("Columns:\n")
+        print("Columns\U0001F447\n")
         for column in self.data.columns.values:
             print(column, end = "  ")
         
@@ -47,7 +47,7 @@ class Preprocessor:
     def preprocessorMain(self):
         self.removeTargetColumn()
         while(1):
-            print("\nWhat to do")
+            print("\nWhat to do?\n")
             for task in self.tasks:
                 print(task)
 
