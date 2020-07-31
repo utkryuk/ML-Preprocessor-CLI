@@ -30,7 +30,9 @@ class Preprocessor:
             print(column, end = "  ")
         
         while(1):
-            column = input("\nWhich is the target variable:  ")
+            column = input("\nWhich is the target variable:(Press -1 to exit)  ")
+            if column == "-1":
+                exit()
             choice = input("Are you sure?(y/n) ")
             if choice=="y" or choice=="Y":
                 try:
