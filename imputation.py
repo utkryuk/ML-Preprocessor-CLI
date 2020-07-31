@@ -152,5 +152,4 @@ class Imputation:
 
             else:
                 print("\nWrong Integer value!! Try again..")
-        
         return self.data
