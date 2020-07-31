@@ -30,12 +30,13 @@ class DataDescription:
             
     def describe(self):
         while(1):
+            print("\nTasks (Data Description)\U0001F447")
             for task in self.tasks:
                 print(task)
 
             while(1):
                 try:
-                    choice = int(input(("\n\nWhat you want to see? (Press 0 to go back)  ")))
+                    choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
                 except ValueError:
                     print("Integer Value required. Try again.....")
                     continue

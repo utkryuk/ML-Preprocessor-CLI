@@ -116,8 +116,8 @@ class Imputation:
         return
 
     def imputer(self):
-#        self.printNullValues()
         while(1):
+            print("\nImputation Tasks\U0001F447")
             for task in self.tasks:
                 print(task)
 

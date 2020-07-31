@@ -27,23 +27,33 @@ class FeatureScaling:
     
     def normalization(self):
         while(1):
+            print("\nTasks (Normalization)\U0001F447")
             for task in self.tasks_normalization:
                 print(task)
-            choice = int(input("\nEnter your choice : (Press 0 to go back)  "))
 
+            while(1):
+                try:
+                    choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
+                except ValueError:
+                    print("Integer Value required. Try again.....")
+                    continue
+                break
+    
             if choice == 0:
                 break
             
             elif choice == 1:
                 print(self.data.dtypes)
-                columns = input("Enter all the columns you want to normalize (With correct case): ")
+                columns = input("Enter all the columns you want to normalize (Press -1 to go back)  ")
+                if columns == "0":
+                    break
                 for column in columns.split(" "):
                     try:
                         minValue = self.data[column].min()
                         maxValue = self.data[column].max()
                         self.data[column] = (self.data[column] - minValue)/(maxValue - minValue)
                     except:
-                        print("\nString Columns are present. So, NOT possible.\nYou can try the first option though.")
+                        print("\nNot possible....")
                     
 
             elif choice == 2:
@@ -63,12 +73,13 @@ class FeatureScaling:
 
     def standardization(self):
         while(1):
+            print("\nTasks (Standardization)\U0001F447")
             for task in self.tasks_standardization:
                 print(task)
 
             while(1):
                 try:
-                    choice = int(input(("\n\nWhat you want to see? (Press 0 to go back)  ")))
+                    choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
                 except ValueError:
                     print("Integer Value required. Try again.....")
                     continue
@@ -79,14 +90,16 @@ class FeatureScaling:
 
             elif choice == 1:
                 print(self.data.dtypes)
-                columns = input("Enter all the columns you want to standardize (With correct case): ")
+                columns = input("Enter all the columns you want to standardize (Press -1 to go back)  ")
+                if columns == "0":
+                    break
                 for column in columns.split(" "):
                     try:
                         mean = self.data[column].mean()
                         standard_deviation = self.data[column].std()
                         self.data[column] = (self.data[column] - mean)/(standard_deviation)
                     except:
-                        print("\nString Columns are present. So, NOT possible.\nYou can try the first option though.")
+                        print("\nNot possible....")
                     
             
             elif choice == 2:
@@ -106,13 +119,19 @@ class FeatureScaling:
 
 
     def scaling(self):
-        # self.categoricalColumn()
         while(1):
-            print("\nWhat to do now?")
+            print("\nTasks (Feature Scaling)\U0001F447")
             for task in self.tasks:
                 print(task)
-            choice = int(input("\nEnter your Choice : (Press 0 to go back)  "))
+            
 
+            while(1):
+                try:
+                    choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
+                except ValueError:
+                    print("Integer Value required. Try again.....")
+                    continue
+                break
             if choice == 0:
                 break
             

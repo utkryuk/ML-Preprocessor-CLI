@@ -47,13 +47,13 @@ class Preprocessor:
     def preprocessorMain(self):
         self.removeTargetColumn()
         while(1):
-            print("\nWhat to do?\n")
+            print("\nTasks (Preprocessing)\U0001F447\n")
             for task in self.tasks:
                 print(task)
 
             while(1):
                 try:
-                    choice = int(input("\nEnter your Choice : (Press 0 to go exit)  "))
+                    choice = int(input("\nWhat do you want to do? (Press 0 to go exit):  "))
                 except ValueError:
                     print("Integer Value required. Try again.....")
                     continue

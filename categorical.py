@@ -21,7 +21,9 @@ class Categorical:
     def encoding(self):
         categorical_columns = self.data.select_dtypes(include="object")
         while(1):
-            column = input("\nWhich column would you like to one hot encode? (Provide the name with correct case)  ")
+            column = input("\nWhich column would you like to one hot encode? (Provide the name with correct case)(Press 0 to go back)  ")
+            if column == "0":
+                break
             if column in categorical_columns:
             # labelencoder_obj = LabelEncoder()
             # self.data[column] = labelencoder_obj.fit_transform(self.data[column])
@@ -42,13 +44,13 @@ class Categorical:
 
     def categoricalMain(self):
         while(1):
-            print("\nWhat to do now?")
+            print("\nTasks\U0001F447")
             for task in self.tasks:
                 print(task)
 
             while(1):
                 try:
-                    choice = int(input(("\n\nWhat you want to see? (Press 0 to go back)  ")))
+                    choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
                 except ValueError:
                     print("Integer Value required. Try again.....")
                     continue

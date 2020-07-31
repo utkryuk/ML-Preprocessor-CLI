@@ -7,7 +7,7 @@
 
 ## ToDo
 
-- [] Implement try-catch
+- [x] Implement try-catch
 - [] Handling case in the input
 - [] Adding Emoji's
 - [] Adding progress bar
