@@ -9,7 +9,7 @@
 
 - [x] Implement try-catch
 - [] Handling case in the input
-- [] Adding Emoji's
+- [x] Adding Emoji's
 - [] Adding progress bar
 
 

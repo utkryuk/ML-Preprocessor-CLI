@@ -3,10 +3,7 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from data_description import DataDescription
 
 class Categorical:
-    
-    bold_start = "\033[1m"
-    bold_end = "\033[0;0m"
-    
+        
     tasks = [
         '\n1. Show Categorical Columns',
         '2. Performing One Hot encoding',
@@ -42,7 +39,7 @@ class Categorical:
                     self.categoricalColumn()
                     break
             else:
-                print("Wrong Column Name.... Try Again...")
+                print("Wrong Column Name. Try Again...\U0001F974")
 
 
     def categoricalMain(self):
@@ -55,7 +52,7 @@ class Categorical:
                 try:
                     choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
                 except ValueError:
-                    print("Integer Value required. Try again.....")
+                    print("Integer Value required. Try again...\U0001F974")
                     continue
                 break
 
@@ -73,6 +70,6 @@ class Categorical:
                 DataDescription.showDataset(self)
 
             else:
-                print("\nWrong Integer value!! Try again..")
+                print("\nWrong Integer value!! Try again..\U0001F974")
         
         return self.data

@@ -7,8 +7,8 @@ from feature_scaling import FeatureScaling
 
 class Preprocessor:
 
-    start = "\033[1m"
-    end = "\033[0;0m"
+    bold_start = "\033[1m"
+    bold_end = "\033[0;0m"
     
     tasks = [
         '1. Data Description',
@@ -22,7 +22,7 @@ class Preprocessor:
     
     def __init__(self):
         self.data = DataInput().inputFunction()
-        print("\n\nWELCOME TO THE MACHINE LEARNING PREPROCESSOR CLI!!!\N{grinning face}\n\n")
+        print("\n\n" + self.bold_start + "WELCOME TO THE MACHINE LEARNING PREPROCESSOR CLI!!!\N{grinning face}" + self.bold_end + "\n\n")
 
     def removeTargetColumn(self):
         print("Columns\U0001F447\n")

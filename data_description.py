@@ -1,9 +1,6 @@
 import pandas as pd
 
 class DataDescription:
-
-    bold_start = "\033[1m"
-    bold_end = "\033[0;0m"
     
     tasks = [
         '\n1. Describe a specific Column',
@@ -20,7 +17,7 @@ class DataDescription:
                 rows = int(input(("\nHow many rows(>0) to print?  ")))
                 print(self.data.head(rows))
             except ValueError:
-                print("Numeric value is required. Try again....")
+                print("Numeric value is required. Try again....\U0001F974")
                 continue
             break
         return
@@ -41,7 +38,7 @@ class DataDescription:
                 try:
                     choice = int(input(("\n\nWhat you want to do? (Press 0 to go back)  ")))
                 except ValueError:
-                    print("Integer Value required. Try again.....")
+                    print("Integer Value required. Try again.....\U0001F974")
                     continue
                 break
 
@@ -55,7 +52,7 @@ class DataDescription:
                     try:
                         print(self.data[describeColumn].describe())
                     except KeyError:
-                        print("No Column present with this name. Try again....")
+                        print("No Column present with this name. Try again....\U0001F974")
                         continue
                     break
             
@@ -68,4 +65,4 @@ class DataDescription:
                 self.showDataset()
 
             else:
-                print("\nWrong Integer value!! Try again..")
+                print("\nWrong Integer value!! Try again..\U0001F974")
