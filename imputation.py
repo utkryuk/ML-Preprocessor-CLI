@@ -36,7 +36,7 @@ class Imputation:
     def removeColumn(self):
         self.showColumns()
         while(1):
-            columns = input("\nEnter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to delete (Press -1 to go back)  ")
+            columns = input("\nEnter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to delete (Press -1 to go back)  ").lower()
 
             if columns == "-1":
                 break
@@ -58,7 +58,7 @@ class Imputation:
     def fillNullWithMean(self):
         self.showColumns()
         while(1):
-            column = input("\nEnter the column name:(Press -1 to go back)  ")
+            column = input("\nEnter the column name:(Press -1 to go back)  ").lower()
             if column == "-1":
                 break
             choice = input("Are you sure? (y/n)  ")
@@ -81,7 +81,7 @@ class Imputation:
     def fillNullWithMedian(self):
         self.showColumns()
         while(1):
-            column = input("\nEnter the column name:(Press -1 to go back)  ")
+            column = input("\nEnter the column name:(Press -1 to go back)  ").lower()
             if column == "-1":
                 break
             choice = input("Are you sure? (y/n)  ")
@@ -103,7 +103,7 @@ class Imputation:
     def fillNullWithMode(self):
         self.showColumns()
         while(1):
-            column = input("\nEnter the column name:(Press -1 to go back)  ")
+            column = input("\nEnter the column name:(Press -1 to go back)  ").lower()
             if column == "-1":
                 break
             choice = input("Are you sure? (y/n)  ")

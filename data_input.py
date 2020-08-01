@@ -11,6 +11,11 @@ class DataInput:
         '.csv',
     ]
 
+    def change_to_lower_case(self, data):
+        for column in data.columns.values:
+            data.rename(columns = {column : column.lower()}, inplace = True)
+        return data
+
     def inputFunction(self):
         try:
             filename, file_extension = path.splitext(sys.argv[1])
@@ -24,12 +29,13 @@ class DataInput:
             raise SystemExit(f"Provide the " + self.bold_start + "DATASET" + self.bold_end +" name (with extension).\U0001F643")
         
         try:
-            train = pd.read_csv(filename+file_extension)
+            data = pd.read_csv(filename+file_extension)
         except pd.errors.EmptyDataError:
             raise SystemExit(f"The file is "+ self.bold_start + "EMPTY" + self.bold_end + "\U0001F635")
 
         except FileNotFoundError:
             raise SystemExit(f"File " + self.bold_start + "doesn't" + self.bold_end + " exist\U0001F635")
 
-        # print(train)
-        return train
+        data = self.change_to_lower_case(data)
+
+        return data

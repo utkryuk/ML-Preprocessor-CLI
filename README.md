@@ -15,9 +15,10 @@ The CLI made to preprocess the database and save your **time**:clock1:
 ## :memo: To-Do
 
 - [x] Implement try-catch
-- [ ] Handling case in the input
+- [x] Handling case in the input
 - [x] Adding Emoji's
 - [ ] Implementing graph functions for Analysis
+- [ ] Adding Comments
 
 ## Run
 

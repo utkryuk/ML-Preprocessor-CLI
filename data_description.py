@@ -14,7 +14,12 @@ class DataDescription:
     def showDataset(self):
         while(1):
             try:
-                rows = int(input(("\nHow many rows(>0) to print?  ")))
+                rows = int(input(("\nHow many rows(>0) to print? (Press -1 to go back)  ")))
+                if rows == -1:
+                    break
+                if rows <= 0:
+                    print("Number of rows given must be +ve...\U0001F974")
+                    continue
                 print(self.data.head(rows))
             except ValueError:
                 print("Numeric value is required. Try again....\U0001F974")
@@ -48,7 +53,7 @@ class DataDescription:
             elif choice==1:
                 self.showColumns()
                 while(1):
-                    describeColumn = input("\n\nWhich Column?(Don't ignore the case)  ")
+                    describeColumn = input("\n\nWhich Column?  ").lower()
                     try:
                         print(self.data[describeColumn].describe())
                     except KeyError:

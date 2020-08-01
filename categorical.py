@@ -21,7 +21,7 @@ class Categorical:
     def encoding(self):
         categorical_columns = self.data.select_dtypes(include="object")
         while(1):
-            column = input("\nWhich column would you like to one hot encode? (Provide the name with correct case)(Press -1 to go back)  ")
+            column = input("\nWhich column would you like to one hot encode?(Press -1 to go back)  ").lower()
             if column == "-1":
                 break
             if column in categorical_columns:

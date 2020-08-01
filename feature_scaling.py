@@ -47,7 +47,7 @@ class FeatureScaling:
             
             elif choice == 1:
                 print(self.data.dtypes)
-                columns = input("Enter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to normalize (Press -1 to go back)  ")
+                columns = input("Enter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to normalize (Press -1 to go back)  ").lower()
                 if columns == "-1":
                     break
                 for column in columns.split(" "):
@@ -95,7 +95,7 @@ class FeatureScaling:
 
             elif choice == 1:
                 print(self.data.dtypes)
-                columns = input("Enter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to normalize (Press -1 to go back)  ")
+                columns = input("Enter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to normalize (Press -1 to go back)  ").lower()
                 if columns == "-1":
                     break
                 for column in columns.split(" "):

@@ -22,7 +22,7 @@ class Download:
         
         print("Hurray!! It is done....\U0001F601")
         
-        if input("Do you want to exit now? (y/n) ") == 'y':
+        if input("Do you want to exit now? (y/n) ").lower() == 'y':
             print("Exiting...\U0001F44B")
             exit()
         else:

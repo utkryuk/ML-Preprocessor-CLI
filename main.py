@@ -30,7 +30,7 @@ class Preprocessor:
             print(column, end = "  ")
         
         while(1):
-            column = input("\nWhich is the target variable:(Press -1 to exit)  ")
+            column = input("\nWhich is the target variable:(Press -1 to exit)  ").lower()
             if column == "-1":
                 exit()
             choice = input("Are you sure?(y/n) ")
@@ -58,7 +58,7 @@ class Preprocessor:
 
             while(1):
                 try:
-                    choice = int(input("\nWhat do you want to do? (Press -1 to go exit):  "))
+                    choice = int(input("\nWhat do you want to do? (Press -1 to exit):  "))
                 except ValueError:
                     print("Integer Value required. Try again.....\U0001F974")
                     continue
