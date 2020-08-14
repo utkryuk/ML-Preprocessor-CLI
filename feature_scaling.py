@@ -7,6 +7,7 @@ class FeatureScaling:
     bold_start = "\033[1m"
     bold_end = "\033[0;0m"
 
+    # All the Tasks associated with this class.
     tasks = [
         "\n1. Perform Normalization(MinMax Scaler)",
         "2. Perform Standardization(Standard Scaler)",
@@ -28,6 +29,7 @@ class FeatureScaling:
     def __init__(self, data):
         self.data = data
     
+    # Performs Normalization on specific column or on whole dataset.
     def normalization(self):
         while(1):
             print("\nTasks (Normalization)\U0001F447")
@@ -45,12 +47,14 @@ class FeatureScaling:
             if choice == -1:
                 break
             
+            # Performs normalization on the columns provided.
             elif choice == 1:
                 print(self.data.dtypes)
                 columns = input("Enter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to normalize (Press -1 to go back)  ").lower()
                 if columns == "-1":
                     break
                 for column in columns.split(" "):
+                    # This is the basic approach to perform MinMax Scaler on a set of data.
                     try:
                         minValue = self.data[column].min()
                         maxValue = self.data[column].max()
@@ -59,6 +63,7 @@ class FeatureScaling:
                         print("\nNot possible....\U0001F636")
                 print("Done....\U0001F601")
 
+            # Performs normalization on whole dataset.
             elif choice == 2:
                 try:
                     self.data = pd.DataFrame(MinMaxScaler().fit_transform(self.data))
@@ -75,7 +80,7 @@ class FeatureScaling:
 
         return
 
-
+    # Function to perform standardization on specific column(s) or on whole dataset.
     def standardization(self):
         while(1):
             print("\nTasks (Standardization)\U0001F447")
@@ -92,7 +97,8 @@ class FeatureScaling:
 
             if choice == -1:
                 break
-
+            
+            # This is the basic approach to perform Standard Scaler on a set of data.
             elif choice == 1:
                 print(self.data.dtypes)
                 columns = input("Enter all the column"+ self.bold_start + "(s)" + self.bold_end + "you want to normalize (Press -1 to go back)  ").lower()
@@ -107,7 +113,7 @@ class FeatureScaling:
                         print("\nNot possible....\U0001F636")
                 print("Done....\U0001F601")
                     
-            
+            # Performing standard scaler on whole dataset.
             elif choice == 2:
                 try:
                     self.data = pd.DataFrame(StandardScaler().fit_transform(self.data))
@@ -124,14 +130,13 @@ class FeatureScaling:
 
         return
 
-
+    # main function of the FeatureScaling Class.
     def scaling(self):
         while(1):
             print("\nTasks (Feature Scaling)\U0001F447")
             for task in self.tasks:
                 print(task)
             
-
             while(1):
                 try:
                     choice = int(input(("\n\nWhat you want to do? (Press -1 to go back)  ")))
@@ -153,5 +158,5 @@ class FeatureScaling:
             
             else:
                 print("\nWrong Integer value!! Try again..\U0001F974")
-        
+        # Returns all the changes on the DataFrame.
         return self.data

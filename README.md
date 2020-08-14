@@ -18,7 +18,7 @@ The CLI made to preprocess the database and save your **time**:clock1:
 - [x] Handling case in the input
 - [x] Adding Emoji's
 - [ ] Implementing graph functions for Analysis
-- [ ] Adding Comments
+- [x] Adding Comments
 
 ## Run
 

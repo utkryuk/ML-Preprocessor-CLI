@@ -1,7 +1,7 @@
 import pandas as pd
 
 class DataDescription:
-    
+    # The Task associated with this class.
     tasks = [
         '\n1. Describe a specific Column',
         '2. Show Properties of Each Column',
@@ -11,6 +11,7 @@ class DataDescription:
     def __init__(self, data):
         self.data = data
 
+    # The function that prints the database on the command line.
     def showDataset(self):
         while(1):
             try:
@@ -27,12 +28,12 @@ class DataDescription:
             break
         return
 
-
+    # function to print all the columns
     def showColumns(self):
         for column in self.data.columns.values:
             print(column, end="  ")
 
-            
+    # function to describe the dataset or any specific column.
     def describe(self):
         while(1):
             print("\nTasks (Data Description)\U0001F447")
@@ -55,6 +56,7 @@ class DataDescription:
                 while(1):
                     describeColumn = input("\n\nWhich Column?  ").lower()
                     try:
+                        # describe() function is used to tell all the info regarding any specific column.
                         print(self.data[describeColumn].describe())
                     except KeyError:
                         print("No Column present with this name. Try again....\U0001F974")
@@ -62,6 +64,7 @@ class DataDescription:
                     break
             
             elif choice==2:
+                # describe() function is used to tell all the info about the database.
                 print(self.data.describe())
                 print("\n\n")
                 print(self.data.info())
